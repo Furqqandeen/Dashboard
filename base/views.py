@@ -21,17 +21,40 @@ def search(request):
         return render(request,'home.html',details)
     
 def create(request):
-    if request.method=="POST":
-        name=request.POST['name']
-        age=request.POST['age']
-        email=request.POST['email']
-        gender=request.POST['gender']
-        subject=request.POST['subject']
-        mock=request.POST['mock']
-        Student.objects.create(name=name,age=age,gender=gender,email=email,subject=subject,mock=mock)
-        return redirect('home')
-    else:   
-        return render(request,'create.html')
+    if request.method == "POST":
+        name = request.POST.get('name', '').strip()
+        age = request.POST.get('age', '').strip()
+        email = request.POST.get('email', '').strip()
+        gender = request.POST.get('gender', '').strip()
+        subject = request.POST.get('subject', '').strip()
+        mock = request.POST.get('mock', '').strip()
+
+        if not all([name, age, email, gender, subject, mock]):
+            error = "All fields are mandatory"
+            context = {
+                'error': error,
+                'name': name,
+                'age': age,
+                'email': email,
+                'gender': gender,
+                'subject': subject,
+                'mock': mock,
+            }
+            return render(request, 'create.html', context)
+        else:
+            Student.objects.create(
+                name=name,
+                age=age,
+                gender=gender,
+                email=email,
+                subject=subject,
+                mock=mock
+            )
+            return redirect('home')
+
+
+    return render(request, 'create.html')
+
     
 def delete(request,pk):
     std=get_object_or_404(Student,pk=pk)

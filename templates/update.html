@@ -8,35 +8,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <h1 class='m-auto w-50 text-center mb-5 mt-5'>Student Data Updation</h1>
+    <h1 class='m-auto w-50 text-center mb-5 mt-5 text-success'>Student Data Updation</h1>
     <form class='m-auto w-50' method='POST' action=>
         {% csrf_token %}
         <div class="mb-3">
-            <label class="form-label">Name</label>
-            <input type="text" class="form-control" name='name' value={{student.name}}>
+            <label class="form-label text-success">Name</label>
+            <input type="text" class="form-control bg-success-subtle" name='name' value={{student.name}}>
         </div>
         <div class="mb-3">
-            <label class="form-label">Age</label>
-            <input type="text" class="form-control" name='age' value={{student.age}}>
+            <label class="form-label text-success">Age</label>
+            <input type="text" class="form-control bg-success-subtle" name='age' value={{student.age}}>
         </div>
         <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="text" class="form-control" name='email' value={{student.email}}>
+            <label class="form-label text-success">Email</label>
+            <input type="text" class="form-control bg-success-subtle" name='email' value={{student.email}}>
         </div>
         <div class="mb-3">
-            <label class="form-label">Gender</label>
-            <input type="text" class="form-control" name='gender' value={{student.gender}}>
+            <label class="form-label text-success">Gender</label>
+            <input type="text" class="form-control bg-success-subtle" name='gender' value={{student.gender}}>
         </div>
         <div class="mb-3">
-            <label class="form-label">Subject</label>
-            <input type="text" class="form-control" name='subject' value={{student.subject}}>
+            <label class="form-label text-success">Subject</label>
+            <input type="text" class="form-control bg-success-subtle" name='subject' value={{student.subject}}>
         </div>
         <div class="mb-3">
-            <label class="form-label">Mock</label>
-            <input type="text" class="form-control" name='mock' value={{student.mock}}>
+            <label class="form-label text-success">Mock</label>
+            <input type="text" class="form-control bg-success-subtle" name='mock' value={{student.mock}}>
         </div>
         <div class='text-center'>
-            <button type="submit" class='btn btn-primary fs-4'>Update</button>
+            <button type="submit" class='btn btn-success fs-4'>Update</button>
         </div>
         
     </form>
