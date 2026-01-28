@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from base.models import Student
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -31,3 +32,23 @@ def create(request):
         return redirect('home')
     else:   
         return render(request,'create.html')
+    
+def delete(request,pk):
+    std=get_object_or_404(Student,pk=pk)
+    std.delete()
+    return redirect('home')
+
+def update(request,pk):
+    std=Student.objects.get(id=pk)
+    if request.method=='POST':
+        
+        std.name=request.POST['name']
+        std.age=request.POST['age']
+        std.email=request.POST['email']
+        std.gender=request.POST['gender']
+        std.subject=request.POST['subject']
+        std.mock=request.POST['mock']
+        std.save()
+        return redirect('home')
+    else:
+        return render(request,'update.html',{'student':std})

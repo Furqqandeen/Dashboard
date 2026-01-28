@@ -63,12 +63,12 @@
             <td>{{i.subject}}</td>
             <td>{{i.mock}}</td>
             <td> 
-            <a href=""> 
+            <a href="{% url 'delete' i.id %}"> 
                 <i class="fa-solid fa-trash"></i> 
             </a> 
             &nbsp; 
             &nbsp;
-            <a href="">
+            <a href="{% url "update" i.id %}">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
                 
