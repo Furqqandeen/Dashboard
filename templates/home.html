@@ -16,11 +16,11 @@
 <body>
   <nav class="d-flex justify-content-around mt-3 m-2 bg-success" >
     <div>
-      <h1 class="fs-3" style='margin:10px;'><a href="" class="text-white">Employee DataBase</a></h1>
+      <h1 class="fs-3" style='margin:10px;'><a href="" class="text-white">Student DataBase</a></h1>
     </div>
 
     <div style='margin:10px;'>
-      <form class="d-flex" role="search" action=''>
+      <form class="d-flex" role="search" action="{% url "search" %}">
         <input class="form-control me-2" type="search" placeholder="Search" name='word' />
         <button class="btn btn-primary" type="submit">Search</button>
       </form>
